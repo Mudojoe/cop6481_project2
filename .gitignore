@@ -1,2 +1,3 @@
 /models/*.tar.gz
 .rasa/cache/
+.idea/
