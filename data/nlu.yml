@@ -125,12 +125,14 @@ nlu:
 
 - intent: account_info
   examples: |
-    - Checking
-    - Checking Account
-    - Savings 
-    - Savings Account
     - I want to check my account
     - Can you show me my account balance?
     - account information
     - details about my account
 
+- intent: request_balance
+  examples: |
+    - Can you show my [checking](account_type) account balance?
+    - How much money do I have in my [savings](account_type) account?
+    - I'd like to see the balance for my [checking](account_type) account.
+    - What's the balance in my [savings](account_type) account?

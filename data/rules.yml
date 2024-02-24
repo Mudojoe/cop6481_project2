@@ -26,4 +26,9 @@ rules:
   steps:
   - intent: account_info
   - action: action_show_account_info
+- rule: Show account balance
+  steps:
+  - intent: request_balance
+  - action: action_show_account_balance
+
 

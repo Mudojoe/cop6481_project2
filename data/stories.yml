@@ -76,3 +76,19 @@ stories:
   steps:
   - intent: account_info
   - action: action_show_account_info
+
+- story: User requests account balance
+  steps:
+  - intent: request_balance
+  - action: action_show_account_balance
+
+- story: check account balance story
+  steps:
+  - intent: greet
+  - action: action_custom_greet
+  - intent: request_balance
+    entities:
+    - account_type: "checking"
+  - action: action_show_account_balance
+  - intent: goodbye
+  - action: utter_goodbye
