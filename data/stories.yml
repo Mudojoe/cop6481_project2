@@ -4,19 +4,18 @@ stories:
 
 - story: happy path
   steps:
-  - intent: greet
-  - action: utter_greet
-  - action: utter_ask_name
-  - intent: inform
-  - intent: mood_great
-  - action: utter_happy
+    - intent: greet
+    - action: action_custom_greet
+  #  - action: utter_ask_name
+    - intent: inform
+    - intent: mood_great
+    - action: utter_happy
 
 - story: sad path 1
   steps:
   - intent: greet
-  - action: utter_greet
-  - action: utter_ask_name
-  - intent: inform
+  - action: action_custom_greet
+  # Ensure the rest of the story follows logically after action_custom_greet without contradicting the rules
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
@@ -26,8 +25,9 @@ stories:
 - story: sad path 2
   steps:
   - intent: greet
-  - action: utter_greet
-  - action: utter_ask_name
+  - action: action_custom_greet
+#  - action: utter_greet
+#  - action: utter_ask_name
   - intent: inform
   - intent: mood_unhappy
   - action: utter_cheer_up
@@ -38,8 +38,9 @@ stories:
 - story: hours address
   steps:
   - intent: greet
-  - action: utter_greet
-  - action: utter_ask_name
+  - action: action_custom_greet
+#  - action: utter_greet
+#  - action: utter_ask_name
   - intent: inform
     entities:
       - name: "name"
@@ -57,8 +58,9 @@ stories:
 - story: address
   steps:
   - intent: greet
-  - action: utter_greet
-  - action: utter_ask_name
+  - action: action_custom_greet
+#  - action: utter_greet
+#  - action: utter_ask_name
   - intent: inform
   - intent: address
   - action: utter_address
@@ -70,3 +72,7 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
+- story: User inquires about account info
+  steps:
+  - intent: account_info
+  - action: action_show_account_info

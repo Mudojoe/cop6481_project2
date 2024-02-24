@@ -12,13 +12,14 @@ intents:
   - address
   - thanks
   - inform
+  - account_info
 
 entities:
   - name
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Welcome to the COP6481 Branch of the FinTech World Bank"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -51,8 +52,22 @@ responses:
   utter_ask_name:
   - text: "What's your name?"
 
+  utter_account_info:
+    - text: "Great, let me pull up that information for you."
+
 actions:
   - action_save_name
+  - action_custom_greet
+  - action_show_account_info
+
+slots:
+  greeted:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+      - type: custom
+
 
 session_config:
   session_expiration_time: 60

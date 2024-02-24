@@ -123,3 +123,14 @@ nlu:
     - [Mike](name)
     - I'm [Helen](name)
 
+- intent: account_info
+  examples: |
+    - Checking
+    - Checking Account
+    - Savings 
+    - Savings Account
+    - I want to check my account
+    - Can you show me my account balance?
+    - account information
+    - details about my account
+
