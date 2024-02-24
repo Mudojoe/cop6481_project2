@@ -1,0 +1,6 @@
+[
+  {
+    "name": "hours",
+    "pattern": "\\bopen\\b"
+  }
+]
