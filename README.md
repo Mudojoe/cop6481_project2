@@ -52,7 +52,6 @@ other files that are edited toward the assignment goal are :
   * Intents and Entities
   * Responses
   * Actions
-  *
 
 ## Train the Model
 
@@ -64,9 +63,7 @@ This is done using
 The training process is for training data for NLU and Core dialog management.
 Pipeline management is controled throught the config.yml file.
 The training learns from the specfied intents, entities, stories and rules.
-It was in this file that we trained the model to respond to querries such as the balance in the savings or checking account. 
-
-
+It was in this file that we trained the model to respond to querries such as the balance in the savings or checking account.
 
 ## The Rasa Action Server
 
@@ -77,7 +74,7 @@ To start the system we use:
 Runs custom actions such as external API calls, database queries, custom Python code, etc.
 The action server listems at port 5055 so it does not conflict with the Rasa server, which listens at port 5005.
 
-Whenever we modify the actions.yml, it may be neccesary to restart the action server in order for the changes to take effect. 
+Whenever we modify the actions.yml, it may be neccesary to restart the action server in order for the changes to take effect.
 
 In one of the scenarios presented below, the use wants to know their account balances.
 We retrieve that information in a network call.
@@ -87,7 +84,6 @@ In the actions python file we have a class called
 
 There we use the jsonplaceholder to make a query and we used the returned jason data to similate
 an account lookup, We use fields in the returend json to convert to saving and checking values
-
 
 ## Sample Output
 
@@ -103,80 +99,81 @@ When the rasa shell starts we get a prompt:
 
 Our reponse is "hello"
 
-> Your input ->  hello
-> Welcome to the COP6481 Branch of the FinTech World Bank
-> Your userid has been verified
-> What would you like help with today?
-> Your input ->
+> `Your input ->  hello `
+> `Welcome to the COP6481 Branch of the FinTech World Bank`
+> `Your userid has been verified`
+> `What would you like help with today? Your input ->`
 
 Next we ask about out account:
 
-> Your input ->  account info                                                                                                                
-> Let me pull up that information for you...
-> Account Info:
-> Name: Leanne Graham
-> Email: Sincere@april.biz
-> Your input ->
+> `Your input ->  account info`
+> `Let me pull up that information for you...`
+> `Account Info:`
+> `Name: Leanne Graham`
+> `Email: Sincere@april.biz`
+> `Your input ->`
 
 The bot makes a network call to get our account details
 and presents that. Next we want to know what our balances are
 
-> Your input ->  balances                                                                                                                    
-> Please specify which account you'd like to check: Checking or Savings?
-> Your input ->
+> `Your input ->  balances`
+> `Please specify which account you'd like to check: Checking or Savings?`
+> `Your input ->`
 
 The system recognizes that we have both a savings and a checking account and asks us
 which account we are interested in inquiring about. we respond with checking
 
-> Your input ->  Checking
-> Your checking account balance is: $3731.59.
-> Your input ->
+> `Your input ->  Checking`
+> `Your checking account balance is: $3731.59.`
+> `Your input ->`
 
 The system displaus our checking account balance. Since we are already here,
 lets find out our savings balance too.
 
-> Your input ->  savings
-> Your savings account balance is: $12172.44.
-> Your input ->
+> `Your input ->  savings`
+> `Your savings account balance is: $12172.44.`
+> `Your input ->`
 
 next i am interested in what other account I can open
 
-> Your input ->  what additional accounts can I open ?
-> We offer a variety of accounts to meet your needs:
-> - Deposit Accounts
-> - Investment Accounts
-> - Credit Cards
-> - Custodial Accounts
-> - Business Account
+> `Your input ->  what additional accounts can I open ?`
+> `We offer a variety of accounts to meet your needs:`
+>
+> `- Deposit Accounts`
+> `- Investment Accounts`
+> `- Credit Cards`
+> `- Custodial Accounts`
+> `- Business Account`
 
 The system is able to process my natural language query, becasue
 of the training, and lists the available accounts.
 I am interested in opening a CD so I want to know more
 about the Deposit Account
 
-> Your input ->  Deposit Accounts
-> FinTech World Bank offers a wide variety of accounts beyond the standard savings and checking accounts.
-> Here's a breakdown of the different categories and specific examples for  Deposit Accounts:
-> - Certificates of Deposit (CDs): CDs offer a fixed interest rate for a set period, generally ranging from a few months to several years.
->   You receive a higher interest rate than a regular savings account in exchange for not being able to withdraw money before the term ends.
-> - Money Market Accounts: These are similar to savings accounts but often have higher interest rates with certain requirements,
->   like minimum balances or limitations on withdrawals.
-> - Individual Retirement Accounts (IRAs): These are tax-advantaged accounts designed for retirement savings.
->   There are Traditional IRAs, Roth IRAs, and variations with specific contribution and withdrawal rules.
-> Would you like additional information on opening an Account?
+> `Your input ->  Deposit Accounts`
+> `FinTech World Bank offers a wide variety of accounts beyond the standard savings and checking accounts.`
+> `Here's a breakdown of the different categories and specific examples for  Deposit Accounts:`
+>
+> `- Certificates of Deposit (CDs): CDs offer a fixed interest rate for a set period, generally ranging from a few months to several years.`
+>   `You receive a higher interest rate than a regular savings account in exchange for not being able to withdraw money before the term ends.`
+> `- Money Market Accounts: These are similar to savings accounts but often have higher interest rates with certain requirements,`
+>   `like minimum balances or limitations on withdrawals.`
+> `- Individual Retirement Accounts (IRAs): These are tax-advantaged accounts designed for retirement savings.`
+>   `There are Traditional IRAs, Roth IRAs, and variations with specific contribution and withdrawal rules.`
+>   `Would you like additional information on opening an Account?`
 
 The system describes the different deposit accounts in some detail and then asks if we would
 like more information, We would so we respond in the affirmative.
 
-> Your input ->  yes
-> To start the account opening process, please copy the following URL and paste it into your web browser's address bar:
-> https://www.fintechworldbank.com/deposits/bank-cds/cd-accounts/
-> Your input ->
+> `Your input ->  yes`
+> `To start the account opening process, please copy the following URL and paste it into your web browser's address bar:`
+> `https://www.fintechworldbank.com/deposits/bank-cds/cd-accounts/`
+> `Your input ->`
 
 The system then provides the user with the url to get more information about opening a CD
 
+---
 
------
------
------
+---
 
+---
