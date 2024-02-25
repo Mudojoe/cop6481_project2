@@ -14,6 +14,8 @@ intents:
   - inform
   - account_info
   - request_balance
+  - inquire_account_types
+  - inquire_deposit_accounts
 
 entities:
   - name
@@ -60,11 +62,40 @@ responses:
   utter_ask_which_account:
     - text: "Which account would you like help with? Checking or Savings?"
 
+  utter_account_types:
+    - text: "We offer a variety of accounts to meet your needs:\n- Deposit Accounts\n- Investment Accounts\n- Credit Cards\n- Custodial Accounts\n- Business Account"
+
+  utter_deposit_accounts_info:
+    - text: |
+        FinTech World Bank offers a wide variety of accounts beyond the standard savings and checking accounts.
+        Here's a breakdown of the different categories and specific examples for  Deposit Accounts:
+        
+        - Certificates of Deposit (CDs): CDs offer a fixed interest rate for a set period, generally ranging from a few months to several years. 
+          You receive a higher interest rate than a regular savings account in exchange for not being able to withdraw money before the term ends.
+        - Money Market Accounts: These are similar to savings accounts but often have higher interest rates with certain requirements, 
+          like minimum balances or limitations on withdrawals.
+        - Individual Retirement Accounts (IRAs): These are tax-advantaged accounts designed for retirement savings. 
+          There are Traditional IRAs, Roth IRAs, and variations with specific contribution and withdrawal rules.
+      
+        Would you like additional information on opening an Account?
+
+  #utter_more_info_account_opening:
+  #  - text: "Great! You can start the account opening process by visiting our website. Click [here](https://www.bankofamerica.com/deposits/bank-cds/cd-accounts/) to begin."
+
+  utter_more_info_account_opening:
+    - text: |
+        To start the account opening process, please copy the following URL and paste it into your web browser's address bar:
+
+        https://www.fintechworldbank.com/deposits/bank-cds/cd-accounts/
+
+
 actions:
   - action_save_name
   - action_custom_greet
   - action_show_account_info
   - action_show_account_balance
+  - utter_account_types
+  - utter_deposit_accounts_info
 
 slots:
   greeted:
@@ -74,7 +105,15 @@ slots:
     mappings:
       - type: custom
 
+  asked_about_opening_account:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings: []
+
+
 
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+

@@ -30,5 +30,27 @@ rules:
   steps:
   - intent: request_balance
   - action: action_show_account_balance
+- rule: Inform about account types
+  steps:
+  - intent: inquire_account_types
+  - action: utter_account_types
+- rule: Inform about deposit accounts
+  steps:
+  - intent: inquire_deposit_accounts
+  - action: utter_deposit_accounts_info
+- rule: Ask about account opening
+  steps:
+  - action: utter_ask_about_opening_account
+  - slot_was_set:
+    - asked_about_opening_account: true
+- rule: Provide URL for account opening information
+  condition:
+    - slot_was_set:
+        - asked_about_opening_account: true
+  steps:
+  - intent: affirm
+  - action: utter_more_info_account_opening
+  - slot_was_set:
+      - asked_about_opening_account: false
 
 

@@ -33,6 +33,8 @@ nlu:
 - intent: affirm
   examples: |
     - yes
+    - yep
+    - Absolutely
     - y
     - indeed
     - of course
@@ -136,3 +138,18 @@ nlu:
     - How much money do I have in my [savings](account_type) account?
     - I'd like to see the balance for my [checking](account_type) account.
     - What's the balance in my [savings](account_type) account?
+
+- intent: inquire_account_types
+  examples: |
+    - What types of accounts do you offer?
+    - Can you tell me about the different account types?
+    - What kinds of accounts can I open?
+    - I want to know about your account types.
+
+- intent: inquire_deposit_accounts
+  examples: |
+    - Tell me about your deposit accounts
+    - What deposit accounts do you offer?
+    - I want to know about deposit accounts
+    - Information on deposit accounts
+
