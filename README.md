@@ -99,13 +99,13 @@ When the rasa shell starts we get a prompt:
 
 Our reponse is "hello"
 
-`Your input ->  hello `
-
-`Welcome to the COP6481 Branch of the FinTech World Bank`
-
-`Your userid has been verified`
-
-`What would you like help with today? Your input ->`
+> `Your input ->  hello `
+>
+> `Welcome to the COP6481 Branch of the FinTech World Bank`
+>
+> `Your userid has been verified`
+>
+> `What would you like help with today? Your input ->`
 
 
 Next we ask about out account:
